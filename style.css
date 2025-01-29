@@ -1,0 +1,105 @@
+/* Efectos al pasar el cursor sobre los elementos */
+.navbar-nav .nav-item .nav-link:hover {
+    color: #28a745;
+    text-decoration: underline;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+.news:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: darken(#28a745, 10%);
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto de transformación en los enlaces de navegación */
+.navbar-nav .nav-item .nav-link {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Estilo personalizado para la página de inicio de sesión */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.login-card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-card .card-body {
+    padding: 2rem;
+}
+
+.login-card .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.login-card .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-card .btn-primary {
+    background: #0062E6;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.login-card .btn-primary:hover {
+    background: #0056b3;
+}
+
+.login-card .btn-secondary {
+    margin-top: 1rem;
+    background: #6c757d;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.login-card .btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* Estilo para los íconos de redes sociales */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 24px; /* Ajusta el tamaño a 24px */
+    height: 24px; /* Ajusta el tamaño a 24px */
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}

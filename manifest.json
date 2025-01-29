@@ -1,0 +1,51 @@
+{
+    "name": "TechSolutions",
+    "short_name": "TechSol",
+    "start_url": "./index.php",
+    "display": "standalone",
+    "background_color": "#f0f0f0",
+    "theme_color": "#0044cc",
+    "form_factor": "wide",
+    "icons": [
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/favicon.png",
+        "sizes": "300x300",
+        "type": "image/png"
+      }
+    ]
+  }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.techsolutions.com/index.php</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/services.php</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/products.php</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/about.php</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/contact.php</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/testimonials.php</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/terms.php</loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.techsolutions.com/faq.php</loc>
+        <changefreq>yearly</changefreq>
+    </url>
+</urlset>
