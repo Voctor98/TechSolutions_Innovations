@@ -1,51 +1,23 @@
 {
-    "name": "TechSolutions",
-    "short_name": "TechSol",
-    "start_url": "./index.php",
-    "display": "standalone",
-    "background_color": "#f0f0f0",
-    "theme_color": "#0044cc",
-    "form_factor": "wide",
-    "icons": [
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      },
-      {
-        "src": "./images/favicon.png",
-        "sizes": "300x300",
-        "type": "image/png"
-      }
-    ]
-  }
+  "name": "TechSolutions PWA",
+  "short_name": "TechPWA",
+  "start_url": "/TechSolutions _Innovations/index.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "features": {
+    "form_factor": "wide"
+  },
+  "icons": [
+    {
+      "src": "/TechSolutions _Innovations/icons/icon-192x192.png",
+      "sizes": "200X200",
+      "type": "image/png"
+    },
+    {
+      "src": "/TechSolutions _Innovations/icons/icon-512x512.png",
+      "sizes": "200X200",
+      "type": "image/png"
+    }
+  ]
+}
