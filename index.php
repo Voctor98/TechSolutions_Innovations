@@ -15,6 +15,14 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('Service Worker registrado con éxito:', reg))
+        .catch(err => console.error('Error al registrar el Service Worker:', err));
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <title>Página de Inicio - TechSolutions Innovations</title>
