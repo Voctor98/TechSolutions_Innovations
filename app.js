@@ -1,6 +1,19 @@
 /* app.js */
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("content").innerHTML = "<h2>Bienvenido a TechSolutions</h2>";
+
+    // Solicitar permisos para notificaciones
+    if ('Notification' in window) {
+        Notification.requestPermission().then((permission) => {
+            if (permission === 'granted') {
+                console.log('Permiso para notificaciones concedido');
+            } else if (permission === 'denied') {
+                console.warn('Permiso para notificaciones denegado');
+            } else if (permission === 'default') {
+                console.log('Permiso para notificaciones: predeterminado');
+            }
+        });
+    }
 });
 
 if ('serviceWorker' in navigator) {
