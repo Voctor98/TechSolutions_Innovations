@@ -342,7 +342,16 @@
 2025-02-22 19:18:12 - admin - Login fallido
 2025-02-22 19:18:42 - admin - Login exitoso
 2025-02-22 19:19:00 - admin - Logout
+<<<<<<< HEAD
 2025-03-03 05:39:32 - admin - Login exitoso
 2025-03-03 05:41:33 - admin - Logout
 2025-03-03 05:49:41 - admin - Login exitoso
 2025-03-03 05:49:49 - admin - Logout
+=======
+2025-02-27 05:01:19 - admin - Login exitoso
+2025-02-27 05:01:38 - admin - Login exitoso
+2025-02-27 05:02:19 - admin - Login exitoso
+2025-02-27 05:02:52 - admin - Logout
+2025-02-27 05:04:29 - admin - Login exitoso
+2025-02-27 05:40:20 - admin - Logout
+>>>>>>> c169af8ba22bfe85c31c412ad3ec879b22d1ce7a
