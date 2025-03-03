@@ -2,6 +2,12 @@ const CACHE_NAME = "techsolutions-cache-v1";
 const urlsToCache = [
   "./",
   "./index.php",
+  "./services.php",
+  "./products.php",
+  "./index.php",
+  "./about.php",
+  "./contact.php",
+  "./sitemap.html",
   "./styles.css",
   "./script.js",
   "./images/favicon.png",
