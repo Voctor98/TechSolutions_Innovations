@@ -16,11 +16,20 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
 <!DOCTYPE html>
 <html lang="es">
 <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registrado con éxito:', reg))
-        .catch(err => console.error('Error al registrar el Service Worker:', err));
-    }
+   if ('serviceWorker' in navigator && 'SyncManager' in window) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(registration => {
+      console.log('Service Worker registrado:', registration);
+    })
+    .catch(error => {
+      console.error('Error al registrar SW:', error);
+    });
+
+  window.addEventListener('online', async () => {
+    const registration = await navigator.serviceWorker.ready;
+    registration.sync.register('sync-offline-data');
+  });
+}
 </script>
 
 <head>
@@ -97,7 +106,6 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
     </style>
 </head>
 <body>
-    <!-- Menú de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="index.php">TechSolutions Innovations</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,8 +150,6 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
             </form>
         </div>
     </nav>
-    <!-- Fin del Menú de Navegación -->
-
     <div class="background-image"></div>
     <div class="container my-5 content text-center">
         <h1 class="text-dark">Bienvenidos a TechSolutions Innovations</h1>
@@ -158,7 +164,6 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
         <p class="text-center">En TechSolutions Innovations, estamos dedicados a ofrecerte la mejor tecnología y productos electrónicos de alta calidad. Nuestra misión es proporcionarte soluciones tecnológicas innovadoras que se adapten a tus necesidades. Explora nuestra página para descubrir más sobre nuestros productos y servicios.</p>
     </section>
     
-    <!-- Carrusel de Imágenes -->
     <div id="carouselExampleIndicators" class="carousel slide my-5" data-ride="carousel" data-interval="2000">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
