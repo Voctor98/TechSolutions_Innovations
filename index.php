@@ -15,6 +15,7 @@ if ($admin_login && !isset($_SESSION['admin_welcome_shown'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+<script src="testIndexedDB.js"></script>
 <script>
    if ('serviceWorker' in navigator && 'SyncManager' in window) {
   navigator.serviceWorker.register('/service-worker.js')
