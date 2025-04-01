@@ -94,61 +94,60 @@
             <button id="back-button" class="btn">Volver</button>
         </div>
     </div>
-    
-    <script>
-        function fetchMessages() {
-            fetch('get_messages.php')
-                .then(response => response.json())
-                .then(data => {
-                    const messagesDiv = document.getElementById('messages');
-                    messagesDiv.innerHTML = '';
-                    data.forEach(message => {
-                        const messageElement = document.createElement('div');
-                        messageElement.className = 'message';
-                        messageElement.innerHTML = `
-                            <img src="https://via.placeholder.com/40" alt="Avatar">
-                            <div class="message-content">
-                                <p><strong>${message.username}</strong>: ${message.message}</p>
-                                <small>${new Date(message.timestamp).toLocaleTimeString()}</small>
-                            </div>`;
-                        messagesDiv.appendChild(messageElement);
-                    });
-                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                }).catch(error => {
-                    console.error('Error fetching messages:', error);
-                });
-        }
 
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.5.1/dist/socket.io.min.js"></script>
+    <script>
+        // Conectar con el servidor de Socket.io
+        const socket = io('http://localhost:3000');
+
+        // Recibir mensajes desde el servidor y mostrarlos
+        socket.on('messages', (messages) => {
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.innerHTML = '';
+            messages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message';
+                messageElement.innerHTML = `
+                    <img src="https://via.placeholder.com/40" alt="Avatar">
+                    <div class="message-content">
+                        <p><strong>${message.username}</strong>: ${message.message}</p>
+                        <small>${new Date(message.timestamp).toLocaleTimeString()}</small>
+                    </div>`;
+                messagesDiv.appendChild(messageElement);
+            });
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        });
+
+        // Escuchar nuevos mensajes
+        socket.on('newMessage', (msg) => {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+            messageElement.innerHTML = `
+                <img src="https://via.placeholder.com/40" alt="Avatar">
+                <div class="message-content">
+                    <p><strong>${msg.username}</strong>: ${msg.message}</p>
+                    <small>${new Date(msg.timestamp).toLocaleTimeString()}</small>
+                </div>`;
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        });
+
+        // Enviar un nuevo mensaje
         document.getElementById('send-button').addEventListener('click', () => {
             const username = document.getElementById('username').value;
             const message = document.getElementById('message-input').value;
 
             if (username && message) {
-                fetch('send_message.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `username=${encodeURIComponent(username)}&message=${encodeURIComponent(message)}`
-                }).then(() => {
-                    document.getElementById('message-input').value = '';
-                    fetchMessages();
-                }).catch(error => {
-                    console.error('Error sending message:', error);
-                });
+                socket.emit('newMessage', { username, message });
+                document.getElementById('message-input').value = '';
             }
         });
 
+        // Volver a la página anterior
         document.getElementById('back-button').addEventListener('click', () => {
             window.history.back();
         });
-
-        setInterval(fetchMessages, 5000); // Actualiza los mensajes cada 5 segundos
-        fetchMessages();
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
