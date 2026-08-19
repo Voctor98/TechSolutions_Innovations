@@ -1,72 +1,121 @@
-/* Efectos al pasar el cursor sobre los elementos */
+/* =========================================
+   1. TIPOGRAFÍA Y ESTILOS BASE
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    background-color: #f8f9fa; /* Fondo ligeramente gris para que resalten las tarjetas */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+header, footer {
+    background: #212529; /* Un oscuro más suave que el negro puro */
+    color: white;
+    padding: 20px 10px; /* Mayor espaciado (White space) */
+}
+
+/* =========================================
+   2. ENLACES Y BOTONES GENÉRICOS
+   ========================================= */
+.navbar-nav .nav-item .nav-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
 .navbar-nav .nav-item .nav-link:hover {
     color: #28a745;
-    text-decoration: underline;
+    text-decoration: none; /* Eliminar el subrayado da un toque más actual */
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.testimonial:hover {
-    background-color: #f8f9fa;
-    transition: background-color 0.3s ease;
-}
-
-.news:hover {
-    background-color: #f8f9fa;
-    transition: background-color 0.3s ease;
+.btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px; /* Bordes redondeados estandarizados */
 }
 
 .btn:hover {
-    background-color: darken(#28a745, 10%);
-    transition: background-color 0.3s ease;
+    background-color: #218838; /* Código hexadecimal en lugar de darken() */
 }
 
-/* Efecto de transformación en los enlaces de navegación */
-.navbar-nav .nav-item .nav-link {
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+/* =========================================
+   3. TARJETAS Y COMPONENTES (Sombras suaves)
+   ========================================= */
+.card {
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra base suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo personalizado para la página de inicio de sesión */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra difuminada al hacer hover */
+}
+
+.testimonial, .news {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.testimonial:hover, .news:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   4. PANTALLA DE INICIO DE SESIÓN
+   ========================================= */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #0062E6, #33AEFF);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0062E6, #33AEFF); /* Ángulo dinámico */
+    padding: 20px; /* Evita que la tarjeta toque los bordes en móviles */
 }
 
 .login-card {
     border: none;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 400px;
 }
 
 .login-card .card-body {
-    padding: 2rem;
+    padding: 3rem 2.5rem; /* Más espacio de respiración interior */
 }
 
 .login-card .card-title {
     margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1.5rem;
+    font-weight: 600; /* Inter resalta muy bien con peso 600 */
+    font-size: 1.75rem;
     text-align: center;
+    color: #1a1a1a;
 }
 
 .login-card .form-group {
     margin-bottom: 1.5rem;
 }
 
+.login-card .btn-primary, .login-card .btn-secondary {
+    border: none;
+    border-radius: 8px; /* Consistencia con el resto de la app */
+    padding: 12px 1.5rem; /* Botones más altos y cómodos de clickear */
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%; /* Ocupan todo el ancho de la tarjeta */
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
 .login-card .btn-primary {
     background: #0062E6;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+    color: white;
 }
 
 .login-card .btn-primary:hover {
@@ -75,45 +124,30 @@
 
 .login-card .btn-secondary {
     margin-top: 1rem;
-    background: #6c757d;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    transition: background 0.3s ease;
+    background: #f1f3f5; /* Gris claro en lugar de gris oscuro para mejor contraste */
+    color: #495057;
 }
 
 .login-card .btn-secondary:hover {
-    background: #5a6268;
+    background: #e2e6ea;
 }
 
-/* Estilo para los íconos de redes sociales */
+/* =========================================
+   5. ÍCONOS SOCIALES
+   ========================================= */
 .social-icons {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    justify-content: center;
+    gap: 15px; /* Más separación entre íconos */
+    margin-top: 20px;
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 28px; /* Un poco más grandes para facilitar interacción */
+    height: 28px;
     transition: transform 0.3s ease;
 }
 
 .social-icon:hover {
-    transform: scale(1.2);
-}
-
-/* ====== Nuevos estilos agregados ====== */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-header, footer {
-    background: #333;
-    color: white;
-    padding: 10px;
+    transform: scale(1.15); /* Efecto de escala ligeramente más sutil */
 }
