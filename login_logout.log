@@ -1320,3 +1320,19 @@ Set-cookie: Tamper=24a4c442-600b-4ec9-93f2-770ff951ccba
 2025-04-12 01:45:57 - admin - Login fallido
 2025-04-12 01:46:04 - admin - Cuenta bloqueada
 2025-04-12 01:48:15 - admin - Login exitoso
+2025-05-31 09:05:42 - admin&#39; or &#39;1&#39;=&#39;1&#39; -- - - Login fallido
+2025-05-31 09:06:07 - admin&#39; or &#39;1&#39;=&#39;1&#39; -- - - Login fallido
+2025-05-31 09:06:22 - admin - Login exitoso
+2025-05-31 09:06:41 - admin - Logout
+2025-05-31 09:09:33 - admin - Login exitoso
+2025-05-31 09:10:49 - admin - Logout
+2025-10-18 21:22:12 - admin - Login exitoso
+2025-10-18 21:25:04 - admin - Logout
+2025-10-18 21:25:16 - admin - Login exitoso
+2025-10-18 21:25:37 - admin - Logout
+2026-03-08 19:16:00 - admin - Login exitoso
+2026-04-18 20:51:03 - admin - Login exitoso
+2026-04-18 20:55:42 - admin - Logout
+2026-07-26 05:45:05 - admin - Login exitoso
+2026-08-19 22:46:18 - admin - Login fallido
+2026-08-19 22:46:25 - admin - Login exitoso

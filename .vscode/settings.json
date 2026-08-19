@@ -1,3 +1,9 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "files.exclude": {
+        "**/*.log": true,
+        "logs.txt": true,
+        "package-lock.json": true,
+        "composer.lock": true
+    }
 }
