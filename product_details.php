@@ -21,259 +21,102 @@ $product = $result->fetch_assoc();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($product['name']); ?> - TechSolutions Innovations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($product['name']); ?> - TechSolutions</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Open Sans', sans-serif;
-            color: #333; /* Color oscuro para el texto */
-        }
-        .background-image {
-            background-image: url('images/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg'); /* Ruta de la imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.9; /* Ajusta la opacidad si es necesario */
-        }
-        .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-        .product-details {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .product-image {
-            max-width: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #f8f9fa;
-            padding: 10px 20px;
-        }
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 98, 230, 0.85), rgba(51, 174, 255, 0.85));
+            padding: 60px 20px;
+            color: #fff;
             text-align: center;
         }
-        .footer-content div {
-            flex: 1;
-            margin: 5px 0;
+        .details-wrapper {
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
         }
-        .footer-links a, .social-links a, .contact a {
-            display: block;
-            color: #007bff;
-            text-decoration: none;
-            margin: 2px 0;
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            padding: 40px;
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-        @keyframes slideUp {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-100%);
-            }
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
-        .bounce {
-            animation: bounce 1s;
-        }
-        .fadeIn {
-            animation: fadeIn 1s;
-        }
-        .fadeOut {
-            animation: fadeOut 1s;
-        }
-        .slideDown {
-            animation: slideDown 1s;
-        }
-        .slideUp {
-            animation: slideUp 1s;
-        }
-        .shake {
-            animation: shake 0.5s;
-        }
-        .navbar-hidden {
-            transform: translateY(-100%);
-            transition: transform 0.3s;
-        }
+        .footer-map iframe { border-radius: 8px; width: 100%; height: 150px; }
+        .footer-links-list a, .footer-contact-list a { color: #a8b2bc; display: block; margin-bottom: 8px; transition: color 0.3s; }
     </style>
 </head>
 <body>
-    <!-- Menú de Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="index.php">TechSolutions Innovations</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="services.php">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="products.php">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contacto</a>
-                </li>
-                <?php if (isset($_SESSION['username']) && $_SESSION['role'] == 'admin'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Cerrar Sesión</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Iniciar Sesión</a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" name="query">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
-        </div>
-    </nav>
-    <!-- Fin del Menú de Navegación -->
+    <!-- Header unificado -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+            <a class="navbar-brand font-weight-bold" href="index.php">TechSolutions Innovations</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="products.php">← Volver a Productos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    <div class="background-image"></div>
-    <div class="container my-5 content">
-        <div class="product-details">
-            <h1 class="text-center"><?php echo htmlspecialchars($product['name']); ?></h1>
-            <img src="images/<?php echo htmlspecialchars($product['image']); ?>" class="product-image mx-auto d-block" alt="<?php echo htmlspecialchars($product['name']); ?>">
-            <p><strong>Descripción:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
-            <p><strong>Precio:</strong> $<?php echo htmlspecialchars($product['price']); ?></p>
-            <p><strong>Categoría:</strong> <?php echo htmlspecialchars($product['category']); ?></p>
-            <p><strong>Marca:</strong> <?php echo htmlspecialchars($product['brand']); ?></p>
+    <div class="hero-section">
+        <h1>Detalles del Producto</h1>
+    </div>
+
+    <div class="container details-wrapper">
+        <div class="card product-card">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/<?php echo htmlspecialchars($product['image']); ?>" class="product-image" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center mt-4 mt-md-0">
+                    <h2 class="font-weight-bold mb-3"><?php echo htmlspecialchars($product['name']); ?></h2>
+                    <h4 class="text-primary font-weight-bold mb-4">$<?php echo htmlspecialchars($product['price']); ?></h4>
+                    
+                    <div class="mb-4">
+                        <h6 class="font-weight-bold">Descripción:</h6>
+                        <p class="text-muted"><?php echo htmlspecialchars($product['description']); ?></p>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <h6 class="font-weight-bold">Categoría:</h6>
+                            <p class="text-muted"><?php echo htmlspecialchars($product['category']); ?></p>
+                        </div>
+                        <div class="col-6">
+                            <h6 class="font-weight-bold">Marca:</h6>
+                            <p class="text-muted"><?php echo htmlspecialchars($product['brand']); ?></p>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.php" class="btn btn-primary btn-lg w-100" style="border-radius: 8px;">Solicitar Información</a>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            var lastScrollTop = 0;
-            $(window).on('scroll', function() {
-                var scrollTop = $(this).scrollTop();
-                var scrollHeight = $(document).height();
-                var windowHeight = $(window).height();
 
-                if (scrollTop > lastScrollTop) {
-                    // Scrolling down
-                    $('.navbar').addClass('navbar-hidden');
-                } else {
-                    // Scrolling up
-                    $('.navbar').removeClass('navbar-hidden');
-                }
-                lastScrollTop = scrollTop;
-
-                if (scrollTop <= 0) {
-                    $('body').addClass('bounce');
-                    setTimeout(function() {
-                        $('body').removeClass('bounce');
-                    }, 1000);
-                } else if (scrollTop + windowHeight >= scrollHeight) {
-                    $('body').addClass('bounce');
-                    setTimeout(function() {
-                        $('body').removeClass('bounce');
-                    }, 1000);
-                }
-            });
-        });
-    </script>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="brand">
-                <p>TechSolutionsInnovations</p>
-            </div>
-            <div class="social-links">
-                <a href="https://www.facebook.com" target="_blank">Facebook</a>
-                <a href="https://www.twitter.com" target="_blank">Twitter</a>
-                <a href="https://www.instagram.com" target="_blank">Instagram</a>
-            </div>
-            <div class="footer-links">
-                <a href="support.php">Soporte al usuario</a>
-                <a href="faq.php">Preguntas frecuentes</a>
-                <a href="about.php">Acerca de</a>
-                <a href="terms.php">Términos y condiciones</a>
-            </div>
-            <div class="company-info">
-                <p>Dirección de la empresa</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2202.1106761658757!2d-102.35332368917338!3d21.83847508176745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429eb8c66ba4c57%3A0x800a85fa04315af2!2sUniversidad%20Tecnol%C3%B3gica%20de%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1720334252646!5m2!1ses-419!2smx" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="sitemap">
-                <a href="sitemap.html">Mapa del sitio</a>
-            </div>
-            <div class="contact">
-                <p>Buzón: <a href="mailto:info@empresa.com">info@empresa.com</a></p>
-                <a href="chat.php">Chat en vivo</a>
+    <!-- Footer Unificado -->
+    <footer class="mt-5">
+        <div class="container pt-4 text-left">
+            <div class="row">
+                <div class="col-md-3"><h5 class="font-weight-bold">TechSolutions</h5><p class="small text-muted">Innovación y calidad.</p></div>
+                <div class="col-md-3 footer-links-list"><a href="support.php">Soporte</a><a href="faq.php">FAQ</a></div>
+                <div class="col-md-3 footer-contact-list"><a href="mailto:info@techsolutions.com">📧 info@techsolutions.com</a></div>
+                <div class="col-md-3 footer-map"><iframe src="..."></iframe></div>
             </div>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
